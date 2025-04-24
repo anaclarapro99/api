@@ -21,6 +21,3 @@ if resposta.status_code == 200:
     st.metric(label="Fonte", value=dados["source"])
 else:
     st.error("Erro ao buscar dados. Tente novamente mais tarde.")
-
-    streamlit
-    requests
