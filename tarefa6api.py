@@ -19,5 +19,3 @@ if resposta.status_code == 200:
     st.metric(label="Código", value=dados["code"])
     st.metric(label="Valor Atual (R$)", value=f'{dados["value"]:.2f}')
     st.metric(label="Fonte", value=dados["source"])
-else:
-    st.error("Erro ao buscar dados. Tente novamente mais tarde.")
