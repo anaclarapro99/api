@@ -38,6 +38,4 @@ try:
 
             st.markdown("### 📊 Tabela de Cotações")
             st.dataframe(df, use_container_width=True)
-        else:
-            st.warning("A resposta da API não contém os dados esperados.")
-   
+        
