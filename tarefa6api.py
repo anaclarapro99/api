@@ -43,6 +43,4 @@ try:
     else:
         st.warning("Nenhum dado encontrado na resposta da API.")
 
-except requests.RequestException as e:
-    st.error(f"Erro ao acessar a API: {e}")
 
