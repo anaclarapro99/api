@@ -40,5 +40,4 @@ try:
             st.dataframe(df, use_container_width=True)
         else:
             st.warning("A resposta da API não contém os dados esperados.")
-    else:
-        st.warning("Nenhum dado encontrado na resposta da API.")
+   
