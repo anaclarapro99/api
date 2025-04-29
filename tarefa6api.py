@@ -38,5 +38,4 @@ if resposta.status_code == 200:
     st.markdown("### 📊 Tabela de Cotações")
     st.dataframe(df.style.format({"💲 Valor Atual (R$)": "R$ {:.2f}"}), use_container_width=True)
 
-else:
-    st.error("Erro ao buscar dados da API. Verifique sua conexão ou tente mais tarde.")
+
