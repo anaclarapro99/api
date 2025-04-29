@@ -38,4 +38,3 @@ try:
 
             st.markdown("### 📊 Tabela de Cotações")
             st.dataframe(df, use_container_width=True)
-        
