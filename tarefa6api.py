@@ -30,7 +30,3 @@ if response.status_code == 200:
     # Exibir a tabela
     st.markdown("### 📊 Tabela com Cotações das Moedas Estrangeiras")
     st.dataframe(df, use_container_width=True)
-
-else:
-    st.error("Erro ao acessar a API da BrasilAPI.")
-           
