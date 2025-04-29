@@ -29,5 +29,3 @@ if resposta.status_code == 200:
     df.columns = ["Nome da Moeda", "Código", "Valor em R$", "Fonte"]
 
     st.dataframe(df, use_container_width=True)
-else:
-    st.error("Erro ao buscar dados da API. Tente novamente mais tarde.")
