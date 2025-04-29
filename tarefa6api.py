@@ -6,26 +6,37 @@ import pandas as pd
 
 st.set_page_config(page_title="Cotação de Moedas - BrasilAPI", layout="wide")
 
+# Título e descrição
 st.title("💱 Cotação de Moedas - Dados via BrasilAPI")
 
 st.markdown("""
 Esta aplicação consome dados da [BrasilAPI](https://brasilapi.com.br) para exibir as **cotações de moedas estrangeiras** em relação ao **Real (R$)**.
 
-Abaixo estão listadas as moedas disponíveis com:
-- Nome da moeda
-- Código da moeda
-- Valor atual em R$
-- Fonte dos dados
+### 🧾 Informações exibidas:
+- **Nome da moeda**
+- **Código da moeda**
+- **Valor atual em R$**
+- **Fonte dos dados**
 """)
 
-# Chamada da API
+# API
 url = "https://brasilapi.com.br/api/currency/v1"
 resposta = requests.get(url)
 
 if resposta.status_code == 200:
     dados = resposta.json()
+    
+    # Organizando os dados com Pandas
     df = pd.DataFrame(dados)
     df = df[["name", "code", "value", "source"]]
-    df.columns = ["Nome da Moeda", "Código", "Valor em R$", "Fonte"]
+    df.columns = ["🪙 Nome da Moeda", "Código", "💲 Valor Atual (R$)", "📡 Fonte"]
 
-    st.dataframe(df, use_container_width=True)
+    # Ordena por nome
+    df = df.sort_values(by="🪙 Nome da Moeda")
+
+    # Exibição da tabela estilizada
+    st.markdown("### 📊 Tabela de Cotações")
+    st.dataframe(df.style.format({"💲 Valor Atual (R$)": "R$ {:.2f}"}), use_container_width=True)
+
+else:
+    st.error("Erro ao buscar dados da API. Verifique sua conexão ou tente mais tarde.")
